@@ -393,3 +393,14 @@ form.contact-form{background:rgba(35,50,61,.45);border:1px solid rgba(228,199,14
   .reveal{opacity:1;transform:none;}
   .hero-emblem,.orb,.hero-ring,.scroll-hint .line{animation:none!important;}
 }
+
+/* ============ REFERANSLAR (boş iskelet) ============ */
+.references{background:var(--navy);}
+.references .ref-empty{
+  margin-top:36px;padding:52px 28px;text-align:center;
+  border:1px dashed rgba(201,168,118,.32);border-radius:var(--r);
+  background:linear-gradient(180deg,rgba(201,168,118,.05),rgba(201,168,118,0));
+  display:flex;flex-direction:column;align-items:center;gap:16px;
+}
+.references .ref-empty img{width:74px;height:auto;opacity:.5}
+.references .ref-empty p{color:var(--txt-muted);max-width:44ch;font-size:14.5px}

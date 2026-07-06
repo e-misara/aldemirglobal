@@ -61,12 +61,10 @@
     </a>
     <nav aria-label="Ana menü">
       <ul class="nav-links" id="navLinks">
-        <li><a href="#hakkimizda">Hakkımızda</a></li>
-        <li><a href="#hizmetler">Hizmetler</a></li>
-        <li><a href="#projeler">Projeler</a></li>
-        <li><a href="#rakamlar">Rakamlar</a></li>
-        <li><a href="#iletisim">İletişim</a></li>
-        <li class="nav-cta"><a class="btn btn-gold" href="#iletisim">Teklif Alın</a></li>
+        <li><a href="index.html" aria-current="page">Ana Sayfa</a></li>
+        <li><a href="hizmetler.html">Hizmetler</a></li>
+        <li><a href="yonetim-kurulu.html">Yönetim Kurulu</a></li>
+        <li class="nav-cta"><a class="btn btn-gold" href="teklif-formu.html">Teklif Al</a></li>
       </ul>
     </nav>
     <button class="nav-toggle" id="navToggle" aria-label="Menüyü aç/kapat" aria-expanded="false" aria-controls="navLinks">
@@ -207,6 +205,20 @@
   </div>
 </section>
 
+<!-- ============ REFERANSLAR (boş iskelet) ============ -->
+<section class="section references" id="referanslar">
+  <div class="wrap">
+    <p class="eyebrow reveal">Referanslar</p>
+    <h2 class="s-title reveal">Güvenle tamamlanan <span class="gold-text">iş birlikleri</span></h2>
+    <p class="s-lead reveal">Referans projelerimiz ve iş ortaklarımız yakında bu bölümde yer alacaktır.</p>
+    <!-- TODO(patron): referans projeler / kurumsal iş ortakları (ad, logo, kısa açıklama) -->
+    <div class="ref-empty reveal" role="note">
+      <img src="/assets/amblem.png" alt="" aria-hidden="true">
+      <p>Bu bölüm, tamamlanan referans projeler ve iş ortaklarıyla güncellenecektir.</p>
+    </div>
+  </div>
+</section>
+
 <!-- ============ CONTACT ============ -->
 <section class="section contact" id="iletisim">
   <div class="wrap">
@@ -234,7 +246,12 @@
       </div>
 
       <form class="contact-form reveal d1" id="contactForm"
-            action="https://formspree.io/f/REPLACE_FORM_ID" method="POST" novalidate>
+            action="https://api.web3forms.com/submit" method="POST" novalidate>
+        <!-- Web3Forms — YOUR_ACCESS_KEY, yayına almadan önce gerçek anahtarla değiştirilecek (info@aldemirglobal.com'a bağlı) -->
+        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY">
+        <input type="hidden" name="subject" value="Yeni Teklif / İletişim Talebi — aldemirglobal.com">
+        <input type="hidden" name="from_name" value="Aldemir Grup Web Sitesi">
+        <input type="checkbox" name="botcheck" class="hp-botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;">
         <div class="row2">
           <div class="field">
             <label for="ad">Ad Soyad <span class="req">*</span></label>
@@ -253,9 +270,8 @@
           <label for="mesaj">Mesajınız <span class="req">*</span></label>
           <textarea id="mesaj" name="mesaj" required placeholder="Talebinizi kısaca açıklayın..."></textarea>
         </div>
-        <!-- Honeypot (spam) -->
+        <!-- Ek honeypot (spam) -->
         <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;">
-        <input type="hidden" name="_subject" value="Aldemir Grup — Web İletişim Formu">
 
         <label class="consent">
           <input type="checkbox" id="kvkkOnay" name="kvkk_onay" required value="onaylandi">

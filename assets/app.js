@@ -124,10 +124,12 @@
       var fd = new FormData(form);
       var data = Object.fromEntries(fd.entries());
       var action = form.getAttribute('action') || '';
-      var configured = action.indexOf('REPLACE_FORM_ID') === -1 && action.indexOf('formspree.io') !== -1;
+      var keyEl = form.querySelector('input[name="access_key"]');
+      var accessKey = keyEl ? keyEl.value : '';
+      var configured = action.indexOf('web3forms.com') !== -1 && accessKey && accessKey !== 'YOUR_ACCESS_KEY';
 
       if (!configured) {
-        // Formspree henüz ayarlanmadı → mailto ile gönder
+        // Web3Forms anahtarı henüz ayarlanmadı → mailto ile gönder
         setStatus('E-posta uygulamanız açılıyor…', true);
         mailtoFallback(data);
         return;
@@ -141,21 +143,20 @@
         method: 'POST',
         body: fd,
         headers: { 'Accept': 'application/json' }
-      }).then(function (r) {
-        if (r.ok) {
-          form.reset();
-          setStatus('Teşekkürler! Mesajınız alındı, en kısa sürede dönüş yapacağız.', true);
-        } else {
-          return r.json().then(function (j) {
-            throw new Error((j && j.error) || 'Gönderim başarısız.');
-          });
-        }
-      }).catch(function () {
-        setStatus('Bir sorun oluştu. Lütfen tekrar deneyin veya info@aldemirglobal.com adresine yazın.', false);
-        mailtoFallback(data);
-      }).finally(function () {
-        if (btn) { btn.disabled = false; btn.style.opacity = '1'; }
-      });
+      }).then(function (r) { return r.json(); })
+        .then(function (j) {
+          if (j && j.success) {
+            form.reset();
+            setStatus('Teşekkürler! Mesajınız alındı, en kısa sürede dönüş yapacağız.', true);
+          } else {
+            throw new Error((j && j.message) || 'Gönderim başarısız.');
+          }
+        }).catch(function () {
+          setStatus('Bir sorun oluştu. Lütfen tekrar deneyin veya info@aldemirglobal.com adresine yazın.', false);
+          mailtoFallback(data);
+        }).finally(function () {
+          if (btn) { btn.disabled = false; btn.style.opacity = '1'; }
+        });
     });
   }
 })();
