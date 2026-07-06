@@ -77,11 +77,13 @@ nav a.home:hover{opacity:1;color:var(--gold-lt)}
 .sec-head h2{font-weight:800;font-size:clamp(24px,3.4vw,38px);text-transform:uppercase;color:var(--navy);line-height:1.12;margin-top:8px}
 .sec-head p{font-size:15.5px;color:#46545f;font-weight:300;margin-top:14px}
 .scards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
-.scard{background:var(--white);border:1px solid var(--line);border-radius:6px;padding:30px 28px;transition:.35s;position:relative;overflow:hidden}
+.scard{cursor:pointer;background:var(--white);border:1px solid var(--line);border-radius:6px;padding:30px 28px;transition:.35s;position:relative;overflow:hidden}
 .scard::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--gold-grad);transform:scaleX(0);transform-origin:left;transition:.4s}
 .scard:hover{transform:translateY(-6px);box-shadow:0 20px 44px rgba(27,42,54,.13);border-color:transparent}
 .scard:hover::before{transform:scaleX(1)}
 .scard .sic{width:46px;height:46px;color:var(--bronz);margin-bottom:18px}
+.scard::after{content:"Projeleri Gör →";position:absolute;right:16px;bottom:14px;font-size:11px;font-weight:600;letter-spacing:.05em;color:var(--gold);opacity:0;transition:.3s}
+.scard:hover::after{opacity:1}
 .scard h3{font-weight:700;font-size:18px;color:var(--navy);letter-spacing:.03em;margin-bottom:10px}
 .scard p{font-size:13.5px;color:#4a5a66;font-weight:300}
 /* JUMP */
@@ -162,6 +164,8 @@ footer .area-note{max-width:640px;margin:14px auto 0;font-size:12px;line-height:
     <a href="index.html" class="home">Ana Sayfa</a>
     <a href="hizmetler.html" class="home active" aria-current="page">Hizmetler</a>
     <a href="yonetim-kurulu.html" class="home">Yönetim Kurulu</a>
+    <a href="referanslar.html" class="home">Yaptığımız İşler</a>
+
     <a href="teklif-formu.html" class="btn btn-gold">Teklif Al</a>
   </div>
 </nav>
@@ -186,27 +190,27 @@ footer .area-note{max-width:640px;margin:14px auto 0;font-size:12px;line-height:
       <p>Her yapı türünün kendine özgü dinamikleri vardır. Projenize özel, yapı tipine uygun mekanik ve altyapı çözümleri üretiriz.</p>
     </div>
     <div class="scards">
-      <article class="scard" id="sec-konut">
+      <a class="scard" id="sec-konut" href="referanslar.html#daire">
   <svg class="sic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M8 22L24 9l16 13M11 20v18h26V20M20 38V28h8v10"/></svg>
-  <h3>Daire & Konut</h3><p>Bireysel yaşam alanlarında yüksek konforlu yerden ısıtma, sıhhi tesisat ve akıllı iklimlendirme kurar; dairenizi enerji-verimli, sessiz ve konforlu bir yaşam alanına dönüştürürüz.</p></article>
-<article class="scard" id="sec-villa">
+  <h3>Daire & Konut</h3><p>Bireysel yaşam alanlarında yüksek konforlu yerden ısıtma, sıhhi tesisat ve akıllı iklimlendirme kurar; dairenizi enerji-verimli, sessiz ve konforlu bir yaşam alanına dönüştürürüz.</p></a>
+<a class="scard" id="sec-villa" href="referanslar.html#villa">
   <svg class="sic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M6 24l10-8 8 6 10-8v18H6zM6 40h36M14 24v16M30 22v18"/></svg>
-  <h3>Villa Projeleri</h3><p>Lüks konut konseptine uygun VRF klima hatları, ısı pompaları ve özel mekanik şaft uygulamalarıyla izole, sessiz ve kusursuz bir iklim yönetimi sunarız.</p></article>
-<article class="scard" id="sec-rezidans">
+  <h3>Villa Projeleri</h3><p>Lüks konut konseptine uygun VRF klima hatları, ısı pompaları ve özel mekanik şaft uygulamalarıyla izole, sessiz ve kusursuz bir iklim yönetimi sunarız.</p></a>
+<a class="scard" id="sec-rezidans" href="referanslar.html#rezidans">
   <svg class="sic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M10 42V8h12v34M26 42V16h12v26M14 14h4M14 20h4M14 26h4M30 22h4M30 28h4M6 42h36"/></svg>
-  <h3>Rezidans</h3><p>Çok katlı ve yoğun yaşam komplekslerinde merkezi bina yönetim sistemi (BMS), duman tahliye ve dinamik havalandırma altyapılarını projelendirir ve uygularız.</p></article>
-<article class="scard" id="sec-plaza">
+  <h3>Rezidans</h3><p>Çok katlı ve yoğun yaşam komplekslerinde merkezi bina yönetim sistemi (BMS), duman tahliye ve dinamik havalandırma altyapılarını projelendirir ve uygularız.</p></a>
+<a class="scard" id="sec-plaza" href="referanslar.html#plaza">
   <svg class="sic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M14 42V6h20v36M20 12h2M26 12h2M20 19h2M26 19h2M20 26h2M26 26h2M20 33h2M26 33h2M8 42h32"/></svg>
-  <h3>Plaza & Ofis</h3><p>İş dünyasının merkezinde enerji-verimli chiller sistemleri, taze hava otomasyonu ve kesintisiz konfor sağlayan ticari iklimlendirme çözümleri kurarız.</p></article>
-<article class="scard" id="sec-otel">
+  <h3>Plaza & Ofis</h3><p>İş dünyasının merkezinde enerji-verimli chiller sistemleri, taze hava otomasyonu ve kesintisiz konfor sağlayan ticari iklimlendirme çözümleri kurarız.</p></a>
+<a class="scard" id="sec-otel" href="referanslar.html#otel">
   <svg class="sic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M10 42V18l14-9 14 9v24M16 26h4M28 26h4M16 33h4M28 33h4M22 9l2-4 2 4M6 42h36"/></svg>
-  <h3>Otel & Turizm</h3><p>Misafir konforu için hassas nem kontrolü, yüksek kapasiteli kullanma suyu ve hidrofor sistemleri ile entegre yangın söndürme altyapıları oluştururuz.</p></article>
-<article class="scard" id="sec-avm">
+  <h3>Otel & Turizm</h3><p>Misafir konforu için hassas nem kontrolü, yüksek kapasiteli kullanma suyu ve hidrofor sistemleri ile entegre yangın söndürme altyapıları oluştururuz.</p></a>
+<a class="scard" id="sec-avm" href="referanslar.html#avm">
   <svg class="sic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M8 16h32l-2 26H10zM8 16l3-8h26l3 8M18 22v4a6 6 0 0 0 12 0v-4"/></svg>
-  <h3>AVM & Alışveriş</h3><p>Yoğun insan trafiğine sahip alanlarda otopark jet fan sistemleri, güçlü egzoz havalandırması ve geniş alan yangın sprinkler tesisatı uygularız.</p></article>
-<article class="scard" id="sec-fabrika">
+  <h3>AVM & Alışveriş</h3><p>Yoğun insan trafiğine sahip alanlarda otopark jet fan sistemleri, güçlü egzoz havalandırması ve geniş alan yangın sprinkler tesisatı uygularız.</p></a>
+<a class="scard" id="sec-fabrika" href="referanslar.html#fabrika">
   <svg class="sic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M6 42V22l10 6V22l10 6V14h16v28M34 20v-6M30 42v-8h8v8M6 42h36"/></svg>
-  <h3>Fabrika & Sanayi</h3><p>Endüstriyel tesisler için proses borulama, basınçlı hava, buhar ve kızgın su hatları; ağır yapılar için profesyonel beton kesme ve kontrollü yıkım sunarız.</p></article>
+  <h3>Fabrika & Sanayi</h3><p>Endüstriyel tesisler için proses borulama, basınçlı hava, buhar ve kızgın su hatları; ağır yapılar için profesyonel beton kesme ve kontrollü yıkım sunarız.</p></a>
     </div>
   </div>
 </section>
@@ -312,5 +316,60 @@ document.getElementById('yr').textContent=new Date().getFullYear();
 const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.14});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
+<!-- ═══ ALDEMİR GRUP · SABİT TEKLİF AL / DESTEK WIDGET ═══
+     Tüm sayfalara </body> öncesine. Buton görseli: assets/mascot-fab.png · panel avatarı: assets/mascot-face.png -->
+<div id="ag-fab-wrap">
+  <div id="ag-panel" role="dialog" aria-label="Teklif ve Destek">
+    <div class="ag-head">
+      <img class="ag-ava" src="/assets/mascot-face.png" alt="Aldemir Grup">
+      <div><div class="ag-name">Aldemir Grup</div><div class="ag-status"><span class="ag-dot"></span>Genelde hızlı döneriz</div></div>
+      <button class="ag-x" onclick="agToggle(false)" aria-label="Kapat">×</button>
+    </div>
+    <div class="ag-body">
+      <div class="ag-bubble">Merhaba! Teklif almak ya da bilgi almak için buradayız. Size nasıl yardımcı olalım?</div>
+      <a class="ag-act gold" href="tel:+905348397883"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Bizi Arayın · 0534 839 78 83</a>
+      <a class="ag-act" href="mailto:info@aldemirglobal.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4zM4 6l8 6 8-6"/></svg>E-posta Gönder</a>
+      <a class="ag-act" href="teklif-formu.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M9 13h6M9 17h4"/></svg>Teklif Formu Doldur</a>
+    </div>
+  </div>
+  <button id="ag-fab" onclick="agToggle()" aria-label="Teklif Al">
+    <span class="ag-ring"></span>
+    <img src="/assets/mascot-fab.png" alt="Teklif Al">
+    <span class="ag-cta">Teklif Al</span>
+  </button>
+</div>
+<style>
+#ag-fab-wrap{position:fixed;right:22px;bottom:22px;z-index:9999;font-family:'Montserrat',system-ui,sans-serif}
+#ag-fab{position:relative;display:flex;align-items:center;background:none;border:none;cursor:pointer;padding:0}
+#ag-fab img{width:74px;height:90px;border-radius:20px;object-fit:cover;object-position:center top;border:3px solid #C9A876;background:linear-gradient(160deg,#243643,#1B2A36);box-shadow:0 10px 28px rgba(27,42,54,.42);transition:.25s;position:relative;z-index:2}
+#ag-fab:hover img{transform:translateY(-3px) scale(1.04)}
+.ag-ring{position:absolute;left:0;top:0;width:74px;height:90px;border-radius:20px;box-shadow:0 0 0 0 rgba(201,168,118,.55);animation:agpulse 2.1s infinite}
+@keyframes agpulse{0%{box-shadow:0 0 0 0 rgba(201,168,118,.5)}70%{box-shadow:0 0 0 15px rgba(201,168,118,0)}100%{box-shadow:0 0 0 0 rgba(201,168,118,0)}}
+.ag-cta{position:absolute;right:84px;top:50%;transform:translateY(-50%);white-space:nowrap;background:linear-gradient(135deg,#E4C78E,#C9A876);color:#1B2A36;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:9px 15px;border-radius:24px;box-shadow:0 6px 18px rgba(201,168,118,.35);pointer-events:none}
+.ag-cta::after{content:'';position:absolute;right:-5px;top:50%;transform:translateY(-50%) rotate(45deg);width:10px;height:10px;background:#C9A876}
+@media(max-width:520px){.ag-cta{display:none}#ag-fab img,.ag-ring{width:64px;height:78px}}
+#ag-panel{position:absolute;right:0;bottom:104px;width:320px;max-width:calc(100vw - 44px);background:#FCFAF5;border:1px solid rgba(27,42,54,.12);border-radius:16px;box-shadow:0 24px 60px rgba(27,42,54,.28);overflow:hidden;transform:translateY(14px) scale(.96);opacity:0;pointer-events:none;transition:.28s cubic-bezier(.2,.8,.2,1)}
+#ag-panel.open{transform:none;opacity:1;pointer-events:auto}
+.ag-head{display:flex;align-items:center;gap:11px;padding:16px;background:radial-gradient(ellipse 120% 120% at 20% 0%,#243643,#1B2A36);color:#F6F2E9;position:relative}
+.ag-head::after{content:'';position:absolute;left:0;bottom:0;width:100%;height:3px;background:linear-gradient(135deg,#E4C78E,#C9A876)}
+.ag-ava{width:46px;height:46px;border-radius:50%;object-fit:cover;object-position:center top;border:2px solid #C9A876;background:#1B2A36}
+.ag-name{font-weight:800;font-size:14px;letter-spacing:.06em}
+.ag-status{font-size:10.5px;color:rgba(246,242,233,.7);display:flex;align-items:center;gap:6px;margin-top:2px}
+.ag-dot{width:7px;height:7px;border-radius:50%;background:#C9A876;box-shadow:0 0 6px rgba(201,168,118,.75)}
+.ag-x{margin-left:auto;background:none;border:none;color:rgba(246,242,233,.6);font-size:22px;line-height:1;cursor:pointer}
+.ag-x:hover{color:#F6F2E9}
+.ag-body{padding:16px}
+.ag-bubble{background:#F6F2E9;border:1px solid rgba(27,42,54,.08);border-radius:12px;border-top-left-radius:3px;padding:12px 14px;font-size:13px;color:#3f4d58;line-height:1.5;margin-bottom:14px}
+.ag-act{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:10px;font-size:13px;font-weight:600;color:#1B2A36;background:#F6F2E9;border:1px solid rgba(27,42,54,.1);margin-bottom:9px;transition:.2s;text-decoration:none}
+.ag-act svg{width:17px;height:17px;color:#6E5436}
+.ag-act:hover{transform:translateX(3px);border-color:#C9A876}
+.ag-act.gold{background:linear-gradient(135deg,#E4C78E,#C9A876);border:none;color:#1B2A36}
+.ag-act.gold svg{color:#1B2A36}
+</style>
+<script>
+function agToggle(force){var p=document.getElementById('ag-panel');var o=(force===undefined)?!p.classList.contains('open'):force;p.classList.toggle('open',o);}
+document.addEventListener('click',function(e){var w=document.getElementById('ag-fab-wrap');if(w&&!w.contains(e.target))document.getElementById('ag-panel').classList.remove('open');});
+</script>
+<!-- ═══ WIDGET SONU ═══ -->
 </body>
 </html>
