@@ -4,31 +4,8 @@ Bu site **statik**tir; sunucu/derleme gerektirmez. Hat: **GitHub repo → GitHub
 Toplam maliyet **$0**.
 
 > ⚠️ **Şu an bekleyen tek şey:** Sitenin yayınlanacağı **GitHub hesabı/organizasyonu henüz belli değil**
-> (görevde `[HESAP]` / `[Aldemir'e-ait-ayrı-hesap]` placeholder'ı). Aşağıdaki adımlarda `KULLANICI` yazan
-> yeri, oluşturulacak gerçek hesap adıyla değiştirin. Hesap belli olunca tüm adımlar 15–20 dk’da tamamlanır.
-
----
-
-## 0. İKİ-TRACK YAPI (önce bunu anla)
-
-Repo iki branch içerir:
-
-| Branch | İçerik | Durum |
-|--------|--------|-------|
-| **`main`** | **Coming-soon** "Yapım Aşamasında" tek sayfa | ✅ **CANLI YÜZ** — Pages bunu yayınlar |
-| **`dashboard`** | Sprint 1 **full build** (hakkımızda/hizmetler/projeler/rakamlar/iletişim/KVKK) | 🔒 **WIP** — yereldedir, **push EDİLMEZ** |
-
-**Neden dashboard push edilmiyor?** GitHub Pages free **public repo** ister; public repoda hangi branch
-olursa olsun kaynağı herkese görünür. WIP tam sitenin erkenden görünmemesi için `dashboard` **yalnızca
-yerelde** tutulur; canlıya yalnızca `main` (coming-soon) gider. Full build hazır olunca `main`'e merge edilir.
-
-Bu klasörde branch'ler arası geçiş:
-```bash
-git checkout main        # coming-soon (canlı)
-git checkout dashboard   # full build (yerel WIP)
-```
-
-> Şu an aktif branch **`main`** (coming-soon). Aşağıdaki adımlar bunu canlıya alır.
+> (görevde `[Aldemir'e-ait-ayrı-hesap]` placeholder'ı). Aşağıdaki adımlarda `KULLANICI` yazan yeri,
+> oluşturulacak gerçek hesap adıyla değiştirin. Hesap belli olunca tüm adımlar 15–20 dk’da tamamlanır.
 
 ---
 
@@ -38,17 +15,18 @@ GitHub Pages **ücretsiz planda public repo** ister.
 
 1. Aldemir’e ait GitHub hesabıyla giriş yapın.
 2. **New repository** → ad: `aldemirglobal` → **Public** → (README eklemeyin) → **Create**.
+3. Bu klasördeki tüm dosyaları repo köküne yükleyin.
 
-### Komutla (git zaten hazır)
-Bu klasörde (`~/aldemirglobal`) git **zaten init edilmiş**; `main` (coming-soon) ve `dashboard` (WIP)
-branch'leri commit'li. **Sadece `main`'i** push edin:
+### Komutla (önerilen)
+Bu klasörde (`~/aldemirglobal`) terminalde:
 
 ```bash
-cd ~/aldemirglobal
-git checkout main
+git init
+git add -A
+git commit -m "Aldemir Grup kurumsal site — Sprint 1"
+git branch -M main
 git remote add origin https://github.com/KULLANICI/aldemirglobal.git
 git push -u origin main
-# dashboard'ı PUSH ETMEYİN — yerelde kalsın (WIP gizli kalsın).
 ```
 
 > `.nojekyll` dosyası repoda mevcut — GitHub Pages’in Jekyll işlemesini atlar (klasör/dosya adları olduğu gibi sunulur).
@@ -87,13 +65,9 @@ kilit göründüğünde yayın tamamlanmıştır.
 
 ---
 
-## 4. İletişim formunu aktifleştir (Formspree) — ⚠️ yalnızca FULL BUILD (`dashboard`)
+## 4. İletişim formunu aktifleştir (Formspree · ücretsiz 50 gönderim/ay)
 
-> **Coming-soon (`main`) sayfasında form YOKTUR** — iletişim doğrudan `tel:` ve `mailto:` bağlantılarıyla
-> (Bizi Arayın / E-posta Gönder) yapılır, harici servis gerektirmez. Aşağıdaki Formspree adımları yalnızca
-> `dashboard` branch'indeki tam site yayına alınınca geçerlidir.
-
-Full build formu **mailto yedeğiyle** çalışır (gönder’e basınca kullanıcının e-posta uygulaması açılır).
+Form **şu an mailto yedeğiyle** çalışır (gönder’e basınca kullanıcının e-posta uygulaması açılır).
 Doğrudan e-posta almak için Formspree:
 
 1. [formspree.io](https://formspree.io) → ücretsiz hesap → **New Form** → hedef: `info@aldemirglobal.com`.
@@ -110,10 +84,7 @@ Doğrudan e-posta almak için Formspree:
 
 ---
 
-## 5. PATRON gelince doldurulacak placeholder’lar — ⚠️ FULL BUILD (`dashboard`)
-
-> Coming-soon sayfasında gerçek bilgiler **zaten mevcut** (telefon +90 554 839 78 06, info@aldemirglobal.com).
-> Aşağıdakiler `dashboard` full build içindir; `git checkout dashboard` ile düzenlenir.
+## 5. PATRON gelince doldurulacak placeholder’lar
 
 Tümü `<!-- TODO(patron) -->` yorumu veya `[...]` / `.ph` ile işaretli:
 
