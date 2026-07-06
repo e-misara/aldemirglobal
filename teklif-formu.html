@@ -179,8 +179,8 @@ form.addEventListener('submit', async (e)=>{
     const r=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)});
     const j=await r.json();
     if(j.success){show('ok','✓ Teşekkürler! Talebiniz alındı, en kısa sürede sizinle iletişime geçeceğiz.');form.reset();}
-    else{show('err','Bir sorun oluştu. Lütfen bizi arayın: 0554 839 78 06');}
-  }catch(_){show('err','Bağlantı hatası. Lütfen bizi arayın: 0554 839 78 06');}
+    else{show('err','Bir sorun oluştu. Lütfen bizi arayın: 0534 839 78 83');}
+  }catch(_){show('err','Bağlantı hatası. Lütfen bizi arayın: 0534 839 78 83');}
   finally{btn.disabled=false; btn.textContent='Teklif Talebini Gönder';}
 });
 function show(t,m){res.className='result '+t;res.textContent=m}
