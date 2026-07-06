@@ -36,6 +36,7 @@
 @font-face{font-family:'Cormorant';font-style:italic;font-weight:500;font-display:swap;src:url('/assets/fonts/cormorant-500i-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
 
 :root{--paper:#F6F2E9;--white:#FCFAF5;--navy:#1B2A36;--antrasit:#15212B;--ink:#15212B;--gold:#C9A876;--gold-lt:#E4C78E;--bronz:#6E5436;--line:rgba(27,42,54,.10);--line-d:rgba(228,199,142,.18);--gold-grad:linear-gradient(135deg,#E4C78E 0%,#C9A876 100%)}
+html{scroll-padding-top:66px}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Montserrat',sans-serif;background:radial-gradient(ellipse 90% 80% at 50% 0%,#243643,#1B2A36 65%,#15212B);color:var(--paper);min-height:100dvh;display:flex;align-items:center;justify-content:center;padding:40px 20px;-webkit-font-smoothing:antialiased}
 .shell{max-width:920px;width:100%;display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:center}
@@ -72,7 +73,7 @@ body{font-family:'Montserrat',sans-serif;background:radial-gradient(ellipse 90% 
 .note code{color:var(--gold-lt)}
 @media(max-width:800px){.shell{grid-template-columns:1fr;gap:30px}.left{text-align:center}.stripe,.left img{margin-left:auto;margin-right:auto}.left ul{align-items:center}}
 
-nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:12px 34px;background:rgba(21,33,43,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line-d)}
+nav{position:fixed;top:0;left:0;width:100%;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:12px 34px;background:rgba(21,33,43,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line-d)}
 nav .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.14em;font-size:13px;color:var(--paper);text-decoration:none}
 nav .brand img{height:32px}
 nav .brand span{display:flex;flex-direction:column;line-height:1.1}
@@ -83,9 +84,9 @@ nav a.home:hover{opacity:1;color:var(--gold-lt)}
 
 /* --- ortak nav: aktif + mobil hamburger dropdown --- */
 nav a.home.active{opacity:1;color:var(--gold-lt)}
-.menu-btn{display:none;background:none;border:none;color:var(--paper);font-size:24px;line-height:1;cursor:pointer;padding:4px 8px}
+.menu-btn{display:none;background:none;border:none;color:var(--paper);font-size:26px;line-height:1;cursor:pointer;padding:10px 12px;margin:-6px -8px;position:relative;z-index:60;-webkit-tap-highlight-color:rgba(201,168,118,.25)}
 @media(max-width:860px){
-  nav{position:relative}
+  
   nav .brand small{display:none}
   nav ul,nav .r{display:none;position:absolute;top:100%;left:0;width:100%;flex-direction:column;gap:0;align-items:stretch;background:#1B2A36;border-top:1px solid var(--gold);padding:6px 0;box-shadow:0 22px 44px rgba(0,0,0,.4)}
   nav.open ul,nav.open .r{display:flex}
@@ -100,7 +101,7 @@ nav a.home.active{opacity:1;color:var(--gold-lt)}
 .btn-gold:hover{filter:brightness(1.06);transform:translateY(-2px)}
 /* --- teklif sayfası: nav üstte, form altında ortalı --- */
 body{display:block;padding:0}
-.teklif-wrap{min-height:calc(100dvh - 58px);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:44px 20px}
+.teklif-wrap{min-height:calc(100dvh - 58px);padding-top:76px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:44px 20px}
 </style>
 </head>
 <body>
@@ -193,11 +194,7 @@ function show(t,m){res.className='result '+t;res.textContent=m}
 </script>
 <!-- ═══ ALDEMİR GRUP · SABİT TEKLİF AL / DESTEK WIDGET ═══
      Tüm sayfalara 
-<script>(function(){var n=document.querySelector('nav');if(!n)return;var b=n.querySelector('.menu-btn');if(!b)return;
-b.addEventListener('click',function(e){e.stopPropagation();var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');});
-n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){n.classList.remove('open');b.setAttribute('aria-expanded','false');});});
-document.addEventListener('click',function(e){if(!n.contains(e.target)){n.classList.remove('open');b.setAttribute('aria-expanded','false');}});
-})();</script>
+
 </body> öncesine. Buton görseli: assets/mascot-fab.png · panel avatarı: assets/mascot-face.png -->
 <div id="ag-fab-wrap">
   <div id="ag-panel" role="dialog" aria-label="Teklif ve Destek">
@@ -252,5 +249,10 @@ function agToggle(force){var p=document.getElementById('ag-panel');var o=(force=
 document.addEventListener('click',function(e){var w=document.getElementById('ag-fab-wrap');if(w&&!w.contains(e.target))document.getElementById('ag-panel').classList.remove('open');});
 </script>
 <!-- ═══ WIDGET SONU ═══ -->
+<script>(function(){var n=document.querySelector('nav');if(!n)return;var b=n.querySelector('.menu-btn');if(!b)return;
+b.addEventListener('click',function(e){e.stopPropagation();var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');});
+n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){n.classList.remove('open');b.setAttribute('aria-expanded','false');});});
+document.addEventListener('click',function(e){if(!n.contains(e.target)){n.classList.remove('open');b.setAttribute('aria-expanded','false');}});
+})();</script>
 </body>
 </html>
